@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+<section class="card">
+    <header class="card-header bg-info text-white">
+        <b><i>Edit Profile Data</b></i>
+        
+    </header>
+    <header class="card-header">
+       <i> <b class="text-danger">Your account created at:</b> {{user_data.date_joined}}
+        <span class="pull-right"><b class="text-danger"> Group Name:</b> {{user.groups.all.0.name}}</span>
+        <br>
+        <b class="text-danger"> Last Login at: </b>{{user_data.last_login}}
+       </i>
+    </header>
+    <div class="card-body">
+        <div class="container">
+            <div class="col-8">
+                <form method="post" enctype="multipart/form-data" class="form" novalidate>
+                    {% csrf_token %}
+                    {% include 'includes/form.html' %}
+                    <br>
+                    <button type="submit" class="btn btn-info float-right">Edit</button>
+                </form>
+            </div>
+        </div>
+</section>
+
+{% endblock content %}

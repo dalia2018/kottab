@@ -23,10 +23,10 @@
                 <a class="nav-link" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="{% url "edit_profile" %}">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
             </li>
         </ul>
     </div>
@@ -37,14 +37,21 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="btn btn-light me-3" id="toggleSidebar">☰</button>
             <a class="navbar-brand" href="#">Menu</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+            </ul>
             <div class="ms-auto">
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         User {{ user}}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="{% url "edit_profile" %}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'admin:index'%}">Settings</a></li>
+                        <li><a class="dropdown-item" href="{% url 'add_user'%}">Add User</a></li>
+                        <li><a class="dropdown-item" href="{% url 'change_password'%}">Change Password</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url "logout" %}">Logout</a></li>
                     </ul>

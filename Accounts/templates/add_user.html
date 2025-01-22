@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create User{% endblock title %}
+{% block content %}
+<section class="card">
+    <header class="card-header bg-info text-white">
+        <b><i>Create User</b></i>        
+    </header>    
+    <div class="card-body">
+        <div class="container">
+            <div class="col-8">
+                <form method="post" enctype="multipart/form-data" class="form" novalidate>
+                    {% csrf_token %}
+                    {% include 'includes/form.html' %}
+                    <br>
+                    <button type="submit" class="btn btn-info float-right">Add</button>
+                </form>
+            </div>
+        </div>
+</section>
+
+{% endblock content %}
