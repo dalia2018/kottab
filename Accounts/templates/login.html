@@ -3,7 +3,7 @@
   Kottab Login Form 
 {% endblock title %}
 {% block content %}
-  <header>Login Form</header>
+  <header>Welcome to Kottab</header>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">

@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import *
 from django.contrib.auth.models import Group
-
-
+from django.contrib.auth.decorators import login_required
+from .create_groups import *
 # Create your views here.
-def test(request):
-    return render(request,'login.html')
-
+@login_required
+def start(request):
+    add_groups()
+    return render(request,'start.html')
 
 def add_user(request):
     if request.method == "POST":
